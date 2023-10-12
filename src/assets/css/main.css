@@ -1,0 +1,47 @@
+.my-layout {
+  height: 100vh;
+}
+
+.my-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-container {
+  background-color: #fafafa;
+}
+
+.create-add-header {
+  position: absolute;
+}
+
+.create-add-img-btm {
+  flex-direction: column;
+  align-items: center;
+  /* flex-direction-column align-items-center */
+}
+
+.primary-bg-clr {
+  background-color: #fafafa;
+}
+
+/* Dashboard Piechart Toggle  */
+
+.dashboards-pie-chart-toggle {
+  padding: 0.1rem;
+  background-color: #f2f2f2;
+  display: flex;
+  border-radius: 200px;
+}
+
+.dashboards-pie-chart-toggle .tabX {
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 200px;
+}
+
+.dashboards-pie-chart-toggle .tabX.active {
+  background-color: #0096ff;
+  color: white;
+}
