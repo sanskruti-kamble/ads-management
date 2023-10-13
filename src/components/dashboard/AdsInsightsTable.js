@@ -22,12 +22,12 @@ function createData(campaigns, clicks, cost, conversions, revenue) {
 }
 
 const rows = [
-  createData("Cosmetics", 712, "USD 4,272", 8, "USD 16,568"),
-  createData("Serums", "3,961", "USD 27,331", 115, " USD 362,526"),
-  createData("Facewash", "9,462", "USD 76,831", 123, "USD 266,800"),
-  createData("Shampoos", 439, "USD 2,151", 5, "USD 11,029"),
-  createData("Conditioners", "1,680", "USD 3,864", 49, "USD 175,245"),
-  createData("Facewash2", "24,978", "USD 29,370", 189, " USD 623,106"),
+  createData("Cosmetics", 712, 4272, 8,  16568),
+  createData("Serums", 3961, 27331, 115, 362526),
+  createData("Face wash", 9462, 76831, 123, 266800),
+  createData("Shampoos", 439, 2151, 5, 11029),
+  createData("Conditioners", 1680, 3864, 49, 175245),
+  createData("Face wash2", 24978, 29370, 189,  623106),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -137,9 +137,9 @@ export default function AdsInsightsTable() {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("");
   const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(7);
+  const [page] = React.useState(0);
+  const [dense] = React.useState(false);
+  const [rowsPerPage] = React.useState(7);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -215,9 +215,9 @@ export default function AdsInsightsTable() {
                     {row.campaigns}
                   </TableCell>
                   <TableCell align="right">{row.clicks}</TableCell>
-                  <TableCell align="right">{row.cost}</TableCell>
+                  <TableCell align="right">USD {row.cost}</TableCell>
                   <TableCell align="right">{row.conversions}</TableCell>
-                  <TableCell align="right">{row.revenue}</TableCell>
+                  <TableCell align="right">USD {row.revenue}</TableCell>
                 </TableRow>
               );
             })}

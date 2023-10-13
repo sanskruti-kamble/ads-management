@@ -6,7 +6,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function PieChart(props) {
   const [data, setData] = useState({
-    labels: [`40% Male`, `35% Female`, `25% Unknown`],
+    labels: [
+      `${calculatePercentage(props?.data?.male)}% Male`,
+      `${calculatePercentage(props?.data?.female)}% Female`,
+      `${calculatePercentage(props?.data?.unknown)}% Unknown`,
+    ],
 
     datasets: [
       {
@@ -41,7 +45,11 @@ export default function PieChart(props) {
 
   useEffect(() => {
     setData({
-      labels: [`40% Male`, `35% Female`, `25% Unknown`],
+      labels: [
+        `${calculatePercentage(props?.data?.male)}% Male`,
+        `${calculatePercentage(props?.data?.female)}% Female`,
+        `${calculatePercentage(props?.data?.unknown)}% Unknown`,
+      ],
 
       datasets: [
         {
@@ -54,7 +62,14 @@ export default function PieChart(props) {
         },
       ],
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.data]);
+
+  function calculatePercentage(actualCount) {
+    const totalCount =
+      props?.data?.male + props?.data?.female + props?.data?.unknown;
+    return parseFloat((actualCount / totalCount) * 100).toFixed();
+  }
 
   return (
     <>

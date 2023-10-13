@@ -13,8 +13,7 @@ import { visuallyHidden } from "@mui/utils";
 
 function createData(group, clicks, cost, conversions, revenue) {
   return {
-    group,
-    clicks,
+    group,clicks,
     cost,
     conversions,
     revenue,
@@ -22,9 +21,9 @@ function createData(group, clicks, cost, conversions, revenue) {
 }
 
 const rows = [
-  createData("Male", 348, "USD 12,528", 42, "USD 62,118"),
-  createData("Female", 692, "USD 24,912", 35, "USD 5,175"),
-  createData("Unknown", 105, "USD 3,943", 3, "USD 4,489"),
+  createData("Male", 348,  12528, 42,  62118),
+  createData("Female", 692,  24912, 35,  5175),
+  createData("Unknown", 105,  3943, 3,  4489),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -134,9 +133,9 @@ export default function AdsInsightsTable2() {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("");
   const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(6);
+  const [page] = React.useState(0);
+  const [dense] = React.useState(false);
+  const [rowsPerPage] = React.useState(6);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -212,9 +211,9 @@ export default function AdsInsightsTable2() {
                     {row.group}
                   </TableCell>
                   <TableCell align="right">{row.clicks}</TableCell>
-                  <TableCell align="right">{row.cost}</TableCell>
+                  <TableCell align="right">USD {row.cost}</TableCell>
                   <TableCell align="right">{row.conversions}</TableCell>
-                  <TableCell align="right">{row.revenue}</TableCell>
+                  <TableCell align="right">USD {row.revenue}</TableCell>
                 </TableRow>
               );
             })}

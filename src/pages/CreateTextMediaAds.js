@@ -6,7 +6,7 @@ export default function CreateTextMediaAds() {
   const navigate = useNavigate();
   const params = useParams();
 
-  const [pageType, setPageType] = useState(params.type);
+  const [pageType] = useState(params.type);
   const [isModalOpen, setIsModelOpen] = useState(false);
 
   function toggleIsModelOpen() {
@@ -163,7 +163,7 @@ export default function CreateTextMediaAds() {
               className="form-control"
               type="url"
               id="website-url"
-              placeholder="Add the URL of the landing page you want to redirect useres to"
+              placeholder="Add the URL of the landing page you want to redirect users to"
               value=""
             />
           </div>
